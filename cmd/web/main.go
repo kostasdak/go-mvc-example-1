@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/kostasdak/go-mvc/internal/gomvc"
+	"github.com/kostasdak/gomvc"
 )
 
 var c gomvc.Controller
@@ -31,8 +31,7 @@ func main() {
 		Handler: AppHandler(db, cfg),
 	}
 
-	fmt.Print("Web app starting at port : ")
-	fmt.Println(cfg.Server.Port)
+	fmt.Println("Web app starting at port : ", cfg.Server.Port)
 
 	err = srv.ListenAndServe()
 	if err != nil {
@@ -73,40 +72,30 @@ func AppHandler(db *sql.DB, cfg *gomvc.AppConfig) http.Handler {
 	// contact page
 	c.RegisterAction("/contact", "", gomvc.ActionView, "")
 
+	// registe a custom action func when contact form is posted
 	c.RegisterCustomAction("/contact", "", gomvc.HttpPOST, "", ContactPostForm)
 	return c.Router
 }
 
 // Custom handler for specific page and action
 func ContactPostForm(w http.ResponseWriter, r *http.Request) {
-	//test if I have access to products
+
+	//test if I have access to products Model
 	fmt.Print("Table Fields : ")
 	fmt.Println(c.Models["products"].Fields)
 
+	//read all records from table products
 	rows, _ := c.Models["products"].GetAllRecords(100)
 	fmt.Print("Select Rows : ")
 	fmt.Println(rows)
 
-	//test form
+	//print form fields
 	fmt.Print("Form Fields : ")
 	fmt.Println(r.Form)
-	//for k, v := range r.Form {
-	//	fmt.Println(k, v)
-	//}
 
-	//test session
+	//test session -> send hello message
 	c.GetSession().Put(r.Context(), "error", "Hello From Session")
-
-	//TO DO : send email
-	//test email ... failed
-	/*from := "kostas@domain.com"
-	auth := smtp.PlainAuth("Kostas", from, "*******", "mail.domain.com")
-	err = smtp.SendMail("mail.domain.com:25", auth, from, []string{"kostas@domain.com"}, []byte("Hello, world"))
-	if err != nil {
-		fmt.Println(err)
-	}*/
 
 	//redirect to homepage
 	http.Redirect(w, r, "/", http.StatusSeeOther)
-
 }
