@@ -1,14 +1,14 @@
-# Example 01 - MySQL - MVC (Model View Controller) with Golang
+# Example 01 - gomvc package
 
 Example 01 for MVC (Model View Controller) implementation with Golang using MySql database
 
 ## Overview
-Web app with 5 pages.
-    - Home
-    - Products
-    - About
-    - Contact
-    
+Web app with 5 pages.</br>
+    - Home</br>
+    - Products</br>
+    - About</br>
+    - Contact</br>
+
 
 This is a Golang package easy to use and build almost any MVC Web App connected to MySql database with just a few steps.</br>
 `gomvc` package requires a MySql Server up and running and a database ready to drive your web application.</br>
