@@ -105,6 +105,7 @@ func main() {
 
 ### Write code to use gomvc package
 ### AppHandler
+
 ```
 func AppHandler(db *sql.DB, cfg *gomvc.AppConfig) http.Handler {
 
