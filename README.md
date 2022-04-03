@@ -102,3 +102,57 @@ func main() {
 	}
 }
 ```
+
+### Write code to use gomvc package
+### AppHandler
+```
+func AppHandler(db *sql.DB, cfg *gomvc.AppConfig) http.Handler {
+
+	// initialize
+	c.Initialize(db, cfg)
+
+	// load template files ... path : /web/templates
+	c.CreateTemplateCache("home.view.tmpl", "base.layout.html")
+
+	// *** Start registering urls, actions and models ***
+	// home page
+	c.RegisterAction("/", "", gomvc.ActionView, nil)
+	c.RegisterAction("/home", "", gomvc.ActionView, nil)
+
+	// create model for [products] table
+	pModel := gomvc.Model{DB: db, IdField: "id", TableName: "products"}
+
+	// view products ... /products for all records || /products/view/{id} for one product
+	c.RegisterAction("/products", "", gomvc.ActionView, &pModel)
+	c.RegisterAction("/products/view/*", "", gomvc.ActionView, &pModel)
+
+	// create product actions ... this url has two actions
+	// #1 View page -> empty form (no next url required)
+	// #2 Post form data to create a new record in table [products] -> then redirect to [next] url
+	c.RegisterAction("/products/create", "", gomvc.ActionView, &pModel)
+	c.RegisterAction("/products/create", "/products", gomvc.ActionCreate, &pModel)
+
+	// create edit product actions ... this url has two actions
+	// #1 View page with product data -> edit form (no next url required)
+	// #2 Post form data to update record in table [products] -> then redirect to [next] url
+	c.RegisterAction("/products/edit/*", "", gomvc.ActionView, &pModel)
+	c.RegisterAction("/products/edit/*", "/products", gomvc.ActionUpdate, &pModel)
+
+	// create delete product actions ... this url has two actions
+	// #1 View page with product data -> edit form [locked] to confirm detetion (no next url required)
+	// #2 Post form data to delete record in table [products] -> then redirect to [next] url
+	c.RegisterAction("/products/delete/*", "", gomvc.ActionView, &pModel)
+	c.RegisterAction("/products/delete/*", "/products", gomvc.ActionDelete, &pModel)
+
+	// create about page ... static page, no table/model, no [next] url
+	c.RegisterAction("/about", "", gomvc.ActionView, nil)
+
+	// contact page ... static page, no table/model, no [next] url
+	c.RegisterAction("/contact", "", gomvc.ActionView, nil)
+
+	// contact page POST action ... static page, no table/model, no [next] url
+	// Register a custom func to handle the request/response using your oun code
+	c.RegisterCustomAction("/contact", "", gomvc.HttpPOST, nil, ContactPostForm)
+	return c.Router
+}
+```
