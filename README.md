@@ -3,11 +3,18 @@
 Example 01 for MVC (Model View Controller) implementation with Golang using MySql database
 
 ## Overview
-Web app with 5 pages.</br>
-    - Home</br>
-    - Products</br>
-    - About</br>
-    - Contact</br>
+Web app with 5 pages :</br>
+    - Home (static)</br>
+    - Products -> View, Edit, Create, Delete product</br>
+    - About (static)</br>
+    - Contact (static)</br>
+
+Database :</br>
+`/database/example_1.sql`</br>
+
+
+
+
 
 
 This is a Golang package easy to use and build almost any MVC Web App connected to MySql database with just a few steps.</br>
