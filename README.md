@@ -162,7 +162,7 @@ func AppHandler(db *sql.DB, cfg *gomvc.AppConfig) http.Handler {
 
 ```
 // Custom handler for specific page and action, 
-// this function handles the POST action from `Contact Us` page 
+// this function handles the POST action from "Contact Us" page 
 func ContactPostForm(w http.ResponseWriter, r *http.Request) {
 
 	//test if I have access to products Model
