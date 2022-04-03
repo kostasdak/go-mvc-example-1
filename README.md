@@ -157,3 +157,29 @@ func AppHandler(db *sql.DB, cfg *gomvc.AppConfig) http.Handler {
 	return c.Router
 }
 ```
+
+### Custom handler for specific page and action
+
+```
+func ContactPostForm(w http.ResponseWriter, r *http.Request) {
+
+	//test if I have access to products Model
+	fmt.Print("Table Fields : ")
+	fmt.Println(c.Models["products"].Fields)
+
+	//read all records from table products
+	rows, _ := c.Models["products"].GetAllRecords(100)
+	fmt.Print("Select Rows : ")
+	fmt.Println(rows)
+
+	//print form fields
+	fmt.Print("Form Fields : ")
+	fmt.Println(r.Form)
+
+	//test session -> send hello message
+	c.GetSession().Put(r.Context(), "error", "Hello From Session")
+
+	//redirect to homepage
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+}
+```
