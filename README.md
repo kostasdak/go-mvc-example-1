@@ -17,9 +17,9 @@ Steps :</br>
 * Setup MySql database `example_1.sql`
 * Load config file `configs/config.yaml`</br>
 * Connect to MySql database</br>
+* Start your server</br>
 * Write code to initialize your Models and Controllers</br>
 * Write your standard text/Template files (Views)</br>
-* Start your server</br>
 * Enjoy</br>
 
 
@@ -72,3 +72,33 @@ database:
   dbpass: ""
 ```
 
+### Load config file, Connect database, Start server
+
+```
+func main() {
+
+	// Load Configuration file
+	cfg := gomvc.LoadConfig("./config/config.yml")
+
+	// Connect to database
+	db, err := gomvc.ConnectDatabase(cfg.Database.Dbuser, cfg.Database.Dbpass, cfg.Database.Dbname)
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+	defer db.Close()
+
+	//Start Server
+	srv := &http.Server{
+		Addr:    ":" + strconv.FormatInt(int64(cfg.Server.Port), 10),
+		Handler: AppHandler(db, cfg),
+	}
+
+	fmt.Println("Web app starting at port : ", cfg.Server.Port)
+
+	err = srv.ListenAndServe()
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+```
