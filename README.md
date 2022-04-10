@@ -9,7 +9,7 @@ Web app with 5 pages :</br>
     * About (static)</br>
     * Contact (static)</br>
 
-DatabaseFILE  :</br>
+Database file  :</br>
 `/database/example_1.sql`</br>
 
 Steps :</br>
