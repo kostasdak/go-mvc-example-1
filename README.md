@@ -1,6 +1,6 @@
 # Example 01 - gomvc package
 
-Example 01 for MVC (Model View Controller) implementation with Golang using MySql database
+Example 01 for MVC (Model View Controller) implementation with Golang using MySQL database
 
 ## Overview
 Web app with 5 pages :</br>
@@ -13,10 +13,10 @@ Database file  :</br>
 `/database/example_1.sql`</br>
 
 Steps :</br>
-* Setup MySql database `example_1.sql` and MySql server
+* Setup MySQL database `example_1.sql` and MySQL server
 * Edit config file `configs/config.yml`
 * Load config file `configs/config.yaml`</br>
-* Connect to MySql database</br>
+* Connect to MySQL database</br>
 * Write code to initialize your Models and Controllers</br>
 * Write your standard text/Template files (Views)</br>
 * Build and enjoy</br>
