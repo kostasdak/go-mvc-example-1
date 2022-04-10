@@ -6,7 +6,8 @@ gomvc - MVC (Model View Controller) implementation with Golang using MySQL datab
 ## Overview
 Web app with 5 pages :</br>
     * Home (static)</br>
-    * Products -> View, Edit, Create, Delete product</br>
+    * Products -> View products / product</br>
+    * Products Edit, Create, Delete product</br>
     * About (static)</br>
     * Contact (static)</br>
 
