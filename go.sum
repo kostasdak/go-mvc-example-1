@@ -150,6 +150,8 @@ github.com/kostasdak/gomvc v1.0.6 h1:b7+YmgRJNxRxkjHSoORA+PO2yQzbv+jfTHSMkMfiA1o
 github.com/kostasdak/gomvc v1.0.6/go.mod h1:BonRZWQMzOn0ghMRxh6G8LrwsRy+DLqcBjOzknmjZB4=
 github.com/kostasdak/gomvc v1.0.7 h1:jlD7uBftn110b/amPfSmpZXWmG+HT/iYMMVxnf4YGDQ=
 github.com/kostasdak/gomvc v1.0.7/go.mod h1:znBeSRmo/88n/OUGMkReJHU0dIfwU6/OVhoyp7GSxM4=
+github.com/kostasdak/gomvc v1.0.8 h1:vAvl5VESn3aJjUD4FA4r9zJJclaktH2mzdJAsWpgE/o=
+github.com/kostasdak/gomvc v1.0.8/go.mod h1:a32IzDG9i7/Co64G+CLpvZSZaQnu3JCts03kKkCYc6U=
 github.com/kr/fs v0.1.0/go.mod h1:FFnZGqtBN9Gxj7eW1uZ42v5BccTP0vu6NEaFoC2HwRg=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
