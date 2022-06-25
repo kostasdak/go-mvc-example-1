@@ -15,7 +15,7 @@ var c gomvc.Controller
 func main() {
 
 	// Load Configuration file
-	cfg := gomvc.LoadConfig("./config/config.yml")
+	cfg := gomvc.ReadConfig("./config/config.yml")
 
 	// Connect to database
 	db, err := gomvc.ConnectDatabase(cfg.Database.Dbuser, cfg.Database.Dbpass, cfg.Database.Dbname)
