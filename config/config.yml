@@ -10,6 +10,11 @@ EnableInfoLog: true
 #Set to true to see the stack error trace in web page error report, set to false in production server
 ShowStackOnError: true
 
+#UnderConstruction true/false
+#Set to true enable the "under construction mode", use the ExcludeIPs setting to exclude them from "under construction mode"
+UnderConstruction: false
+ExcludeIPs: 127.0.0.1
+
 #Server Settings
 server:
   #Listening port

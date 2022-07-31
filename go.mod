@@ -2,7 +2,7 @@ module github.com/kostasdak/go-mvc-example-1
 
 go 1.17
 
-require github.com/kostasdak/gomvc v1.0.92
+require github.com/kostasdak/gomvc v1.0.93
 
 require (
 	github.com/alexedwards/scs/v2 v2.5.0 // indirect
